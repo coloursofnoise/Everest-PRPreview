@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net452</TargetFramework>
+    <AssemblyName>PRPreview</AssemblyName>
+    <RootNamespace>Celeste.Mod.PRPreview</RootNamespace>
+    <LangVersion>latest</LangVersion>
+    <CELESTEGAMEPATH Condition="'$(CELESTEGAMEPATH)' == ''">..\..</CELESTEGAMEPATH>
+  </PropertyGroup>
+
+  <!--Disable "Copy Local" for all references-->
+  <ItemDefinitionGroup>
+    <PackageReference PrivateAssets="all" ExcludeAssets="runtime" />
+    <Reference Private="false" />
+  </ItemDefinitionGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Celeste" HintPath="$(CELESTEGAMEPATH)\Celeste.exe" />
+  </ItemGroup>
+
+  <Target Name="CopyFiles" AfterTargets="Build">
+    <Copy SourceFiles="$(OutputPath)\$(AssemblyName).dll" DestinationFolder="bin" />
+  </Target>
+
+</Project>
