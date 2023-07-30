@@ -86,7 +86,7 @@ namespace Celeste.Mod.PRPreview {
                                 { "statusFilter", "completed" },
                                 { "resultsFilter", "succeeded" },
                                 { "api-version", "5.0" },
-                            }).ToString(),
+                            }).ToString,
                             ParseData = Everest.Updater.AzureBuildsParser("https://dev.azure.com/EverestAPI/Everest/_apis/build/builds/{0}/artifacts?artifactName=main&api-version=5.0&%24format=zip", offset: 700)
                         }
                     });
